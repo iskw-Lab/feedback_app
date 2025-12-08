@@ -50,3 +50,36 @@ __pycache__/
 # Generated Data / Temporary files
 /tmp/*
 /var/folders/*
+
+# --- [IDEs and Editors] ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+
+# --- [OS Files - Additional] ---
+Thumbs.db
+Desktop.ini
+
+# --- [Logs] ---
+*.log
+logs/
+
+# --- [Runtime data] ---
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# --- [Test coverage] ---
+coverage/
+.nyc_output/
+*.lcov
+
+# --- [Data directory (if dynamically generated)] ---
+data/
+*.json.backup
