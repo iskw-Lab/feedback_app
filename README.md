@@ -116,4 +116,5 @@ npm run dev
 ```
 
 public/characterN.pngはちょこなすさんのイラストを使用させていただきました．
+現在実装されているページ内には含まれていません．
 https://choconasu.com/
