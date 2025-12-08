@@ -83,6 +83,6 @@ Git履歴の徹底的な監査の結果、**機密情報の漏洩は一切検出
 
 ---
 
-**監査実施者**: GitHub Copilot Security Audit Agent  
+**監査実施者**: セキュリティ担当者（GitHub Copilot支援）  
 **使用ツール**: Gitleaks v8.18.1, Git, Manual Review  
 **次回監査推奨日**: 2026-03-08
