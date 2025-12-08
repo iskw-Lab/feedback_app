@@ -46,7 +46,44 @@ __pycache__/
 
 # macOS files
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux files
+*~
+.directory
+.Trash-*
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+
+# Editor backup files
+*~
+*.bak
+*.tmp
+*.temp
 
 # Generated Data / Temporary files
 /tmp/*
 /var/folders/*
+/data/
