@@ -419,9 +419,9 @@ function FeedbackInner() {
                           <span className="ml-1 text-gray-600">件</span>
                         </div>
                       </div>
-                      <Button onClick={handlePrint} variant="outline" size="sm" className="bg-white">
+                      {/*<Button onClick={handlePrint} variant="outline" size="sm" className="bg-white">
                         <Printer className="w-4 h-4 mr-2" />印刷
-                      </Button>
+                      </Button>*/}
                     </CardHeader>
                     <CardContent className="pt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
                       <div className="text-center">
