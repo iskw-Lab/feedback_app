@@ -105,6 +105,23 @@ Vercelへのデプロイ手順については、**[VERCEL_DEPLOYMENT.md](./VERCE
 
 ---
 
+## 🔒 セキュリティ (Security)
+
+このリポジトリは公開前に徹底的なセキュリティ監査を実施しています。
+
+### セキュリティドキュメント
+- **[SECURITY.md](./SECURITY.md)** - セキュリティポリシーと脆弱性報告方法
+- **[SECURITY_AUDIT_REPORT.md](./SECURITY_AUDIT_REPORT.md)** - コードのセキュリティ監査レポート
+- **[GIT_HISTORY_SECURITY_AUDIT.md](./GIT_HISTORY_SECURITY_AUDIT.md)** - Git履歴のセキュリティ監査レポート
+- **[PUBLIC_RELEASE_CHECKLIST.md](./PUBLIC_RELEASE_CHECKLIST.md)** - 公開前チェックリスト
+
+### 重要な注意事項
+- ⚠️ `.env`ファイルは**絶対にコミットしないでください**
+- ⚠️ APIキーやパスワードは**必ず環境変数**で管理してください
+- ✅ すべての機密情報は`process.env`または`os.getenv()`で参照されています
+
+---
+
 ## 🚀 アプリケーションの実行 (Running the Application)
 
 ### 1. フロントエンド (Next.js)

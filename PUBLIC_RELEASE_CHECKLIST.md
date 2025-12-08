@@ -10,12 +10,13 @@
 
 - [ ] **セキュリティ監査レポートの確認**
   - `SECURITY_AUDIT_REPORT.md` を読み、全ての項目を確認済み
+  - `GIT_HISTORY_SECURITY_AUDIT.md` を読み、Git履歴の安全性を確認済み
 
 - [ ] **機密情報の確認**
   - [ ] コード内にAPIキー、パスワード、トークンがハードコードされていない
   - [ ] `.env` ファイルが Git 管理下にない
   - [ ] `.env.local` が `.gitignore` で除外されている
-  - [ ] Git 履歴に機密情報が含まれていない（`git log --all --full-history -- ".env*"` で確認）
+  - [ ] Git 履歴に機密情報が含まれていない（`GIT_HISTORY_SECURITY_AUDIT.md` 参照）
 
 - [ ] **設定ファイルの確認**
   - [ ] `.gitignore` が最新で適切な除外設定がされている
