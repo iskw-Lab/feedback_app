@@ -59,7 +59,6 @@ Desktop.ini
 $RECYCLE.BIN/
 
 # Linux files
-*~
 .directory
 .Trash-*
 
@@ -68,7 +67,6 @@ $RECYCLE.BIN/
 .vscode/
 *.swp
 *.swo
-*~
 .project
 .classpath
 .c9/
