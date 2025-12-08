@@ -1,0 +1,145 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* ▼▼▼ oklch() を #RRGGBB 形式に修正 ▼▼▼ */
+  --background: #ffffff; /* oklch(1 0 0); /* White */
+  --foreground: #252525; /* oklch(0.145 0 0); /* Black (Slightly lighter black) */ 
+  --card: #ffffff; /* oklch(1 0 0); /* White */
+  --card-foreground: #252525; /* oklch(0.145 0 0); /* Black */
+  --popover: #ffffff; /* oklch(1 0 0); /* White */
+  --popover-foreground: #252525; /* oklch(0.145 0 0); /* Black */
+  /* Updated primary to green instead of blue */
+  --primary: #22c55e; /* Approx oklch(0.5 0.12 150); /* Green */
+  --primary-foreground: #ffffff; /* oklch(1 0 0); /* White */
+  /* Updated secondary to lighter green */
+  --secondary: #86efac; /* Approx oklch(0.6 0.1 140); /* Light Green */
+  --secondary-foreground: #252525; /* oklch(0.145 0 0); /* Black */
+  --muted: #f8f8f8; /* Approx oklch(0.97 0 0); /* Very light gray */
+  --muted-foreground: #8e8e8e; /* Approx oklch(0.556 0 0); /* Gray */
+  --accent: #f8f8f8; /* Approx oklch(0.97 0 0); /* Very light gray */
+  --accent-foreground: #252525; /* oklch(0.145 0 0); /* Black */
+  --destructive: #ef4444; /* Approx oklch(0.577 0.245 27.325); /* Red for delete buttons */
+  --destructive-foreground: #ffffff; /* oklch(1 0 0); /* White */
+  --border: #e2e2e2; /* Approx oklch(0.922 0 0); /* Light gray */
+  --input: #e2e2e2; /* Approx oklch(0.922 0 0); /* Light gray */
+  /* Updated ring to green */
+  --ring: #22c55e; /* Approx oklch(0.5 0.12 150); /* Green */
+  --chart-1: #f97316; /* Approx oklch(0.646 0.222 41.116); Orange */
+  --chart-2: #3b82f6; /* Approx oklch(0.6 0.118 184.704); Blue */
+  --chart-3: #8b5cf6; /* Approx oklch(0.398 0.07 227.392); Purple */
+  --chart-4: #ecf34d; /* Approx oklch(0.828 0.189 84.429); Lime/Yellow */
+  --chart-5: #eab308; /* Approx oklch(0.769 0.188 70.08); Yellow */
+  --radius: 0.625rem;
+  --sidebar: #fafafa; /* Approx oklch(0.985 0 0); /* Very light gray */
+  --sidebar-foreground: #252525; /* oklch(0.145 0 0); /* Black */
+  /* Updated sidebar primary to green */
+  --sidebar-primary: #22c55e; /* Approx oklch(0.5 0.12 150); /* Green */
+  --sidebar-primary-foreground: #ffffff; /* oklch(1 0 0); /* White */
+  --sidebar-accent: #f8f8f8; /* Approx oklch(0.97 0 0); /* Very light gray */
+  --sidebar-accent-foreground: #252525; /* oklch(0.145 0 0); /* Black */
+  --sidebar-border: #e2e2e2; /* Approx oklch(0.922 0 0); /* Light gray */
+  /* Updated sidebar ring to green */
+  --sidebar-ring: #22c55e; /* Approx oklch(0.5 0.12 150); /* Green */
+  /* ▲▲▲ oklch() を #RRGGBB 形式に修正 ▲▲▲ */
+}
+
+.dark {
+  /* ▼▼▼ oklch() を #RRGGBB 形式に修正 ▼▼▼ */
+  --background: #252525; /* oklch(0.145 0 0); */
+  --foreground: #fafafa; /* oklch(0.985 0 0); */
+  --card: #252525; /* oklch(0.145 0 0); */
+  --card-foreground: #fafafa; /* oklch(0.985 0 0); */
+  --popover: #252525; /* oklch(0.145 0 0); */
+  --popover-foreground: #fafafa; /* oklch(0.985 0 0); */
+  --primary: #60a5fa; /* Approx oklch(0.6 0.15 240); Blue */
+  --primary-foreground: #252525; /* oklch(0.145 0 0); */
+  --secondary: #4ade80; /* Approx oklch(0.6 0.12 150); Green */
+  --secondary-foreground: #252525; /* oklch(0.145 0 0); */
+  --muted: #444444; /* Approx oklch(0.269 0 0); */
+  --muted-foreground: #b5b5b5; /* Approx oklch(0.708 0 0); */
+  --accent: #444444; /* Approx oklch(0.269 0 0); */
+  --accent-foreground: #fafafa; /* oklch(0.985 0 0); */
+  --destructive: #f87171; /* Approx oklch(0.396 0.141 25.723); Red */
+  --destructive-foreground: #ffffff; /* oklch(1 0 0); */
+  --border: #444444; /* Approx oklch(0.269 0 0); */
+  --input: #444444; /* Approx oklch(0.269 0 0); */
+  --ring: #60a5fa; /* Approx oklch(0.6 0.15 240); Blue */
+  --sidebar: #333333; /* Approx oklch(0.205 0 0); */
+  --sidebar-foreground: #fafafa; /* oklch(0.985 0 0); */
+  --sidebar-primary: #60a5fa; /* Approx oklch(0.6 0.15 240); Blue */
+  --sidebar-primary-foreground: #fafafa; /* oklch(0.985 0 0); */
+  --sidebar-accent: #444444; /* Approx oklch(0.269 0 0); */
+  --sidebar-accent-foreground: #fafafa; /* oklch(0.985 0 0); */
+  --sidebar-border: #444444; /* Approx oklch(0.269 0 0); */
+  --sidebar-ring: #60a5fa; /* Approx oklch(0.6 0.15 240); Blue */
+  /* ▲▲▲ oklch() を #RRGGBB 形式に修正 ▲▲▲ */
+}
+
+/* @theme inline はそのまま */
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* @layer base はそのまま */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* アニメーションはそのまま */
+@keyframes bounce-once {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-once {
+  animation: bounce-once 0.5s ease-in-out;
+}

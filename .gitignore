@@ -1,0 +1,52 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+node_modules/
+venv/
+supabase/db/
+supabase/.temp/
+.supabase/
+
+# next.js
+/.next/
+/out/
+/dist
+
+# production
+/build
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+
+# Environment variables
+.env
+.env.*
+!.env.example
+.env*.local
+
+# --- [ここから追加項目] ---
+
+# Python Environment and Cache
+__pycache__
+__pycache__/
+*.pyc
+/venv
+/.venv
+/.venv-1
+
+# macOS files
+.DS_Store
+
+# Generated Data / Temporary files
+/tmp/*
+/var/folders/*

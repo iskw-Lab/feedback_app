@@ -1,0 +1,16 @@
+# requirements.txt
+pandas
+langchain-openai
+langchain
+langchain-core
+langchain-experimental
+langchain-community
+presidio-anonymizer
+spacy
+ja-core-news-trf
+# 他にも必要なライブラリがあれば追記
+
+flask
+ja_core_news_trf
+azure-search-documents
+python-dotenv
