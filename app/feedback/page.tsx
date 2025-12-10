@@ -39,6 +39,8 @@ import { useAnalysisData } from "./_hooks/useAnalysisData";
 import { useChecklistData } from "./_hooks/useChecklistData";
 import { useResidentAnalysis } from "./_hooks/useResidentAnalysis";
 
+import { RecordAdviceCard } from "./_components/RecordAdviceCard";
+
 // Custom Components (分離したもの)
 import { StaffSidebar } from "./_components/StaffSidebar";
 import { ChecklistViewer } from "./_components/ChecklistViewer";
@@ -444,6 +446,11 @@ function FeedbackInner() {
                       </div>
                     </CardContent>
                   </Card>
+
+                  {/* 不足している視点へのアドバイス表示 */}
+                  {weakestCategory && (
+                    <RecordAdviceCard category={weakestCategory} />
+                  )}
 
                   {/* ケアプラン提案 (存在する場合のみ) */}
                   {Object.keys(planSuggestions).length > 0 && (
