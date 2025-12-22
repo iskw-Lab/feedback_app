@@ -131,21 +131,32 @@ export async function PUT(request: NextRequest) {
 // ★★★ ここまでが修正箇所 ★★★
 
 
-// DELETE: 利用者を削除
+// DELETE: 利用者を削除 (一括削除対応)
 export async function DELETE(request: NextRequest) {
     const cookieStore = await cookies();
     const supabase = await createClient();
-    const { id } = await request.json();
 
     try {
+        // 修正1: 'ids' (配列) として受け取る
+        const { ids } = await request.json();
+
+        // バリデーション: idsが配列でない、または空の場合はエラー
+        if (!ids || !Array.isArray(ids) || ids.length === 0) {
+            return NextResponse.json({ error: '削除対象のIDが選択されていません' }, { status: 400 });
+        }
+
+        // 修正2: .eq('id', id) ではなく .in('id', ids) を使う
         const { error } = await supabase
             .from('care_recipient')
             .delete()
-            .eq('id', id);
+            .in('id', ids);
 
         if (error) throw error;
-        return NextResponse.json({ message: '利用者を削除しました' });
+
+        return NextResponse.json({ message: `${ids.length}件の利用者を削除しました` });
+
     } catch (error: any) {
+        console.error("Delete Error:", error);
         return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
