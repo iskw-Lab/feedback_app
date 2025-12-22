@@ -97,7 +97,7 @@ export default function FileUploadPage() {
     );
   }
 
-  /*return (
+  return (
     // ★★★ メインコンテナのクラスを変更 ★★★
     <div className="flex justify-center items-start min-h-screen bg-gray-100 p-4 pt-16">
       <Card className="w-full max-w-2xl shadow-lg">
@@ -139,12 +139,13 @@ export default function FileUploadPage() {
       </Card>
     </div>
   );// 修正前のreturn文をコメントアウト*/
-  return (
+}
+  /*return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
       <Card className="w-full max-w-md shadow-lg text-center">
         <CardHeader>
           <div className="flex justify-center mb-4">
-            {/* アイコン表示: lucide-reactがない場合はSVGタグに置き換えてください */}
+            {/* アイコン表示: lucide-reactがない場合はSVGタグに置き換えてください}
             <Construction className="h-16 w-16 text-yellow-500" />
           </div>
           <CardTitle className="text-2xl font-bold text-gray-800">
@@ -169,3 +170,4 @@ export default function FileUploadPage() {
     </div>
   );
 }
+*/

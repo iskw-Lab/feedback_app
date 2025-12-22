@@ -340,7 +340,6 @@ async def main(input_csv_path, output_json_path):
 
         icf_labeling_results_df = pd.DataFrame(index=df.index)
         if tasks:
-            # ▼▼▼【ここから修正】▼▼▼
             # processed_codes_map を使わず、DataFrameに直接書き込む
             
             print(f"### DEBUG ### ICFラベリング 逐次実行開始 (タスク数: {len(tasks)})", file=sys.stderr) ### DEBUG ###
@@ -450,50 +449,17 @@ async def main(input_csv_path, output_json_path):
 if __name__ == "__main__":
     if len(sys.argv) > 2:
         input_path = sys.argv[1]
-        original_output_path = sys.argv[2] # 元の出力パス指定 (例: output/some_dir/dummy_name.json)
+        output_path = sys.argv[2]  # ★ Node.jsから渡されたフルパスをそのまま使う
 
-        # ▼▼▼【ファイル名変更処理の修正】▼▼▼
-        input_filename = os.path.basename(input_path) # 例: ..._processed_temp_1F.csv
+        # デバッグログ（Node.jsのコンソールで見えるようにstderrに出力）
+        print(f"Python実行開始: {sys.argv[0]}", file=sys.stderr)
+        print(f"  入力CSV: {input_path}", file=sys.stderr)
+        print(f"  出力JSON: {output_path}", file=sys.stderr)
 
-        # 1. 入力ファイル名からフロア名を抽出
-        floor_match = re.search(r'_temp_([^_]+)\.csv$', input_filename)
-        floor_name_raw = None # ★ 抽出した生のフロア名を保持する変数
-        floor_name_for_file = "unknown_floor" # ★ ファイル名用のフロア名変数
-
-        if floor_match:
-            floor_name_raw = floor_match.group(1)
-            # ▼▼▼【ここから修正】▼▼▼
-            if floor_name_raw == "小規模多機能":
-                floor_name_for_file = "shokibo"
-            else:
-                # スペースをアンダースコアに、その他の不適切な文字を削除（例）
-                temp_name = re.sub(r'\s+', '_', floor_name_raw)
-                floor_name_for_file = re.sub(r'[\\/*?:"<>|]', '', temp_name)
-
-        # 2. 入力ファイル名から yyyymm を抽出 (例: "利用者経過記録情報_20250901_20250930_processed_temp_1F.csv" -> "202509")
-        #    process_csv.py が元のファイル名を維持している前提
-        yyyymm_match = re.search(r'_(\d{4})(\d{2})\d{2}_', input_filename)
-        year_month = yyyymm_match.group(1) + yyyymm_match.group(2) if yyyymm_match else "unknown_yyyymm" # 抽出失敗時のデフォルト名
-
-        if year_month != "unknown_yyyymm" and floor_name_for_file != "unknown_floor":
-            # ★ ファイル名には floor_name_for_file を使用
-            output_filename = f"{year_month}_{floor_name_for_file}_analysis.json"
-            # 元の出力パスの「ディレクトリ部分」を取得
-            output_dir = os.path.dirname(original_output_path)
-            # 新しい出力パスを生成
-            output_path = os.path.join(output_dir, output_filename)
-            print(f"入力ファイル名から '{year_month}' と '{floor_name_raw}' を抽出しました。", file=sys.stderr) ### DEBUG ###
-        else:
-            # ★ デバッグメッセージでは生のフロア名（またはNone）を表示
-            print(f"警告: 入力ファイル名 '{input_filename}' から 'yyyymm' または 'フロア名({floor_name_raw})' を抽出できませんでした。", file=sys.stderr)# 抽出失敗時は元のパスをそのまま使用するか、エラーにするか選択可能
-            # ここでは元のパスを使用
-            print(f"元の出力パス '{original_output_path}' を使用します。", file=sys.stderr)
-            output_path = original_output_path
-        # ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
-
-        print(f"入力CSV: {input_path}", file=sys.stderr) ### DEBUG ###
-        print(f"出力JSON: {output_path}", file=sys.stderr) ### DEBUG ###
+        # メイン処理を実行
+        # ※ main関数の中で output_path に向かって保存するように実装されている必要があります
         asyncio.run(main(input_path, output_path))
+        
     else:
         print("エラー: 入力CSVファイルパスと出力JSONファイルパスが必要です。", file=sys.stderr)
         print("使用法: python tome_evaluation.py <input_csv_path> <output_json_path>", file=sys.stderr)
