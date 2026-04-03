@@ -16,7 +16,6 @@ import spacy
 import spacy_curated_transformers
 
 # --- 定数と設定 ---
-# (プロンプトテンプレートは変更しない)
 PERSONALITY_ABSTRACTION_TEMPLATE = """あなたは，優秀な care professionalです．さまざまな介護記録情報に対して，記録情報の内容を解釈することをサポートしてください．
 
 [Instructions]
